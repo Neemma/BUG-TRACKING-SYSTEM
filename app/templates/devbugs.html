@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BUIBUI-Developer</title>
+    <link rel="icon" type="image/png" href="static/beetle.png"
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='icomoon/font/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="site-wrap">
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="site-navbar py-3" role="banner">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-11 col-xl-2">
+                        <h1 class="mb-0"><a href="{{ url_for('developerdashboard') }}" class="text-white h2 mb-0">Bui<span class="text-primary">Bui</span> </a></h1>
+                    </div>
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                              <li><a href="{{ url_for('developerdashboard') }}">Your Dashboard</a></li>
+                                <li><a href="{{ url_for('developerprofile') }}">Your Profile</a></li>
+                                <li><a href="{{ url_for('devbugs') }}">Your Bugs</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+                </div>
+            </div>
+    </div>
+    </header>
+    <div class="site-section site-hero">
+        <div class="container">
+            <div class="row align-items-center">
+
+                    <span class="d-block mb-3 caption aos-init aos-animate" data-aos="fade-up" data-aos-delay="100"><b style="text-align:centre">Bug Management</b></span>
+                       <div style="height:auto;border:2px solid #ff5733; width: 1000px;
+  overflow-x: auto;padding: 30px;display: block;text-align: center!important;">
+                      <p> <a href="#" style="color:white"> </a></p>
+<table style="clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;border: 1px solid #f4f4f4;width: 100%;box-sizing: border-box;text-indent: initial;background-color: transparent;
+}">
+        <thead style="display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;border-collapse: separate !important;text-indent: initial;">
+            <tr>
+     <tr>
+                <th style="color: #ff5733; border-top: 0;border-left-width:
+                0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;
+                    text-indent: initial; border: 1px solid #f4f4f4;">PRIORITY</th>
+                <th style="color: red; border-top: 0;border-left-width: 0;
+                border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;
+                    text-indent: initial; border: 1px solid #f4f4f4;">STATUS</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding:
+8px;text-align: left;border-collapse: separate !important;text-indent: initial;
+border: 1px solid #f4f4f4;">BUG_ID</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">BUG_TITLE</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">PROJECT_TITLE</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">GENERATE BUG REPORT</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;
+                border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">
+                    PROJECT VSC:<br> [GitHub Repo]</th>
+            </tr>
+        </thead>
+        </thead>
+
+        <tbody style="box-sizing: border-box;text-indent: initial;border-collapse: separate !important;">
+            {% for bugs in bugs4 %}
+
+                <tr>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;"> {{ bugs [7] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;
+                    padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[6]}}</td>
+                     <td id="{{bugs[0]}}" style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">
+                         <a href="#"> {{ bugs [0] }}</a></td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[1] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[12] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">
+                        <a href="{{ url_for('developerbugreport', bug_id=bugs[0]) }}">
+                            <input style="background-color:#ff2731" type="button" value="GENERATE BUG REPORT"></a>
+
+                    </td>
+                 <td style="border-bottom-width: 0; border-left-width: 0; border: 1px solid #f4f4f4; padding: 8px; line-height: 1.42857143; vertical-align: top; display: table-cell; border-collapse: separate !important; text-indent: initial;">
+                      <a href="{{bugs[15]}}" target="_blank" style="color:#FFFDD0">{{bugs[15]}}</a>
+</td>
+
+
+
+    </tr>
+
+        {% endfor %}
+
+
+
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            <div>
+                            </div>
+                        </div><br><br><br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/main.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"79b5006c5d1e9cac","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.2.0","si":100}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

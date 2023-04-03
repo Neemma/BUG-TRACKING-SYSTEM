@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>BUIBUI-1.2.0</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="static/beetle.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='icomoon/font/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='formbug.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='loginn.css') }}">
+    </head>
+    <body>
+
+        <div id="form">
+            <h1 class="d-block mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100" style="text-align:center">Tester Login</h1>
+            <form name="form" action="login_tester" onsubmit="return isvalid()" method="POST">
+
+                   <label>UserName: </label>
+                   <input type="text" id="user" name="username">
+                   <br><br>
+                   <label>Password: </label>
+                   <input type="password" id="pass" name="password" required><br>
+                   <button id="toggle-btn" type="button">Show</button>
+                         <script>
+                                    const passwordField = document.getElementById('pass');
+                                    const toggleBtn = document.getElementById('toggle-btn');
+
+                                    toggleBtn.addEventListener('click', () => {
+                                    const type = pass.getAttribute('type') === 'password' ? 'text' : 'password';
+                                    pass.setAttribute('type', type);
+                                     });
+                                </script>
+                                <br><br>
+                   <input type="submit" id="btn" value="Login" name = "submit"/>
+                   <br><br>
+                   <div style="color:red"> <input type="hidden" value="{{error}}!" style="color:red">{{error}}</div>
+            </form>
+        </div>
+
+    </body>
+</html>

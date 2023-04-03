@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BUIBUI-Developer</title>
+    <link rel="icon" type="image/png" href="static/beetle.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fontt.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="site-wrap">
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="site-navbar py-3" role="banner">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-11 col-xl-2">
+                        <h1 class="mb-0"><a href="{{ url_for('developerdashboard') }}" class="text-white h2 mb-0">Bui<span class="text-primary">Bui</span> </a></h1>
+                    </div>
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                              <li class="active"><a href="{{ url_for('developerdashboard') }}">Your Dashboard</a></li>
+                                <li><a href="{{ url_for('developerprofile') }}">Your Profile</a></li>
+                                <li><a href="{{ url_for('devbugs') }}">Your Bugs</a></li>
+                                 <li><a href="{{ url_for('developerlogout') }}">LOGOUT</a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+                </div>
+            </div>
+    </div>
+    </header>
+
+
+    <div class="site-section site-hero inner">
+        <div class="container">
+            <div class="row align-items-center">
+<div class="col-md-10">
+                    <div class="col-md-10">
+                    <span class="d-block mb-3 caption aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Hello! {{dfname}}</span>
+                        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+
+
+                           <div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="notificationsDropdown"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Notifications
+    <span class="badge badge-light">{{ notification_count }}</span>
+  </button>
+
+  <div class="dropdown-menu" aria-labelledby="notificationsDropdown">
+    {% for notification in notifications %}
+      <a class="dropdown-item" href="{{ notification[3] }}"
+         onclick="event.preventDefault(); markNotificationRead({{ notification[0] }});">{{ notification[2] }}
+      <script>
+  function markNotificationRead(notification_id) {
+    fetch('/mark_devnotification_read/' + notification_id);
+  }
+</script>
+</a>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+                      <div style="height:auto;border:2px solid #ff5733; width: 1000px;
+  overflow-x: auto;padding: 30px;display: block;text-align: center!important;">
+                            <h2>CURRENT PROJECTS:</h2>
+                          <p> In case of any issue, contact your respective project manager via <a href="#">email</a></p>
+
+                                <table style="clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;border: 1px solid #f4f4f4;width: 100%;box-sizing: border-box;text-indent: initial;background-color: transparent;
+}">
+        <thead style="display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;border-collapse: separate !important;text-indent: initial;">
+            <tr>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">
+                    Project Status</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">
+                    Project ID</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">
+                    Project Title</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">
+                    Project Description</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse:
+                 separate !important; text-indent: initial; border: 1px solid #f4f4f4;">Created At</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+                left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Updated At</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+                left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Deadline</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+                left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Manager Email</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+                left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Project Type</th>
+
+            </tr></thead>
+
+                 <tbody style="box-sizing: border-box;text-indent: initial;border-collapse: separate !important;">
+                        {% for project in projects %}
+
+      <tr>
+                  <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[13] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[0] }}</td>
+                   <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;"><a href="#{{ project[1] }}"> {{ project[1] }}</a></td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[2] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[3] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[4] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[5] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[7] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[11] }}</td>
+{% endfor %}
+      </tr></tbody></table>
+
+                            </div>
+                            <div>
+                            </div>
+                        <br><br><br>
+
+
+
+           <div style="height:auto;border:2px solid #ff5733; width: 1000px;
+  overflow-x: auto;padding: 30px;display: block;text-align: center!important;">
+                            <h2>CURRENT BUGS:</h2>
+<p> <u><a href="#" style="color:white"> The following bugs have been assigned to you</a></u></p>
+  <table class="table table-striped" style="clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;border: 1px solid #f4f4f4;width: 100%;box-sizing: border-box;text-indent: initial;background-color: transparent;
+}"> <thead style="display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;border-collapse: separate !important;text-indent: initial;">
+        {% for project in projects %}
+            <tr>
+                <th colspan="5" id="{{ project[1] }}">
+                    <a href="#{{ project[1] }}" style="color:white"> <u>{{ project[1] }}</u></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;
+                    text-indent: initial; border: 1px solid #f4f4f4;">Bug ID</th>
+                <th style="color: red; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;
+                    text-indent: initial; border: 1px solid #f4f4f4;">Priority</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Status</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Title</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Description</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Actual Results</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Expected Results</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Bug Image</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Created At</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Updated At</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+                 left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Bug Type</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Project Title</th>
+                 <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Project Manger Email</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+        left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;"><a href="#editinst" id="edit">Change Status</a> </th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+        left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;"><a href="#approveinst" id="approve" style="color:red">Make Request For Fix Approval</a></th>
+            </tr>
+        </thead>
+
+        <tbody style="box-sizing: border-box;text-indent: initial;border-collapse: separate !important;">
+            {% for bugs in bugs3 %}
+                         {% if bugs[12] == project[1] %}
+                <tr>
+                    <td id="{{bugs[0]}}" style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">
+                        <a href="devbugs.html#{{bugs[0]}}"> {{ bugs [0] }}</a></td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;
+                    padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[7]}}</td>
+                     <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;"> {{ bugs [6] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[1] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[2] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[3] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[4] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[8] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[5] }}</td>
+                     <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[11] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[9] }}</td>
+                       <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[12] }}</td>
+
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">
+                        {{ project [7] }}
+                    </td>
+                     <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">
+                    <form method="post" action="{{ url_for('developereditbugstatus', bug_id=bugs[0]) }}">
+                    <input type="hidden" name="bug_id" value="{{ bugs[0] }}">
+                    <select name="new_status" style="text-align:center">
+                        <option value="RESOLVED">RESOLVED</option>
+                    </select><br>
+                   <br> <input type="submit" value="Update" style="color:#ff5733">
+                </form>
+                    </td>
+      <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;
+                    padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">
+          <form action="{{ url_for('approval', bug_id=bugs[0]) }}" method="post">
+                           <button type="submit" class="btn btn-warning" style="background-color:red">Request Approval</button>
+                        </form>
+      </td>
+
+    </tr>
+             {% endif %}
+    {% endfor %}
+{% endfor %}
+
+  </tbody>
+</table>
+               <div id="editinst" class="row align-items-center"></div>
+
+                   <div id="approveinst">
+ <p style="text-align:left"><a href="#" style="color:white">[<b>EDIT STATUS</b> only if you have created a <u STYLE="color:red">DEPLOYABLE</u> fix]</a></p><br>
+               <span>  <a href="#" style="color:white"><p style="text-align:left">[<b>FIX APPROVAL</b> occurs after the following steps:<br></a>
+                  <a style="color:red">1. The tester RETESTS the bug while utilizing the fix you have provided.<br></a>
+                   <a style="color:red"> 2. The respective project manager approves functionality of the fix you have provided after the tester's review.</a>]<br>
+                   </p></span>
+<br>
+                        <p> If the bug's difficulty is higher than expected, request additional support from your project manager.</p>
+                            </div>
+
+                <br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                            <div>
+                            </div>
+                        </div><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+           <div style="height:auto;border:2px solid #ff5733; width: 1000px;
+  overflow-x: auto;padding: 30px;display: block;text-align: center!important;">
+                               <h2>APPROVED FIXES:</h2>
+
+       <p> <u><a href="#" style="color:white"> Your Pull Requests for these bugs has been approved</a></u></p>
+  <table class="table table-striped" style="clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;border: 1px solid #f4f4f4;width: 100%;box-sizing: border-box;text-indent: initial;background-color: transparent;
+}"> <thead style="display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;border-collapse: separate !important;text-indent: initial;">
+        {% for projects in projectsss %}
+            <tr>
+                <th colspan="5" id="{{ projects[1] }}">
+                    <a href="#{{ projects[1] }}" style="color:white"> <u>{{ projects[1] }}</u></a>
+                </th>
+            </tr>
+            <tr>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding:
+                8px;text-align: left;border-collapse: separate !important;    text-indent: initial;
+                 border: 1px solid #f4f4f4;">Status</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;
+                    text-indent: initial; border: 1px solid #f4f4f4;">Bug ID</th>
+                <th style="color: red; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;
+                    text-indent: initial; border: 1px solid #f4f4f4;">Priority</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Title</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Created At</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Updated At</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width:
+                0;border-bottom-width: 2px;padding: 8px;text-align:
+                 left;border-collapse: separate !important;    t
+                 ext-indent: initial; border: 1px solid #f4f4f4;">Bug Type</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Project Title</th>
+            </tr>
+        </thead>
+
+
+        <tbody style="box-sizing: border-box;text-indent: initial;border-collapse: separate !important;">
+            {% for bugs in archbugs %}
+                         {% if bugs[12] == projects[1] %}
+                <tr>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;"> {{ bugs [6] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;
+                    padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[0]}}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;
+                    padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[7]}}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[1] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[5] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[11] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[9] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ bugs[12] }}</td>
+
+
+    </tr>
+             {% endif %}
+    {% endfor %}
+{% endfor %}
+
+  </tbody>
+</table>
+
+
+
+
+
+                            </div>
+                            <div>
+                            </div>
+                        <br><br><br>
+
+
+
+
+
+
+
+
+           <div style="height:auto;border:2px solid #ff5733; width: 1000px;
+  overflow-x: auto;padding: 30px;display: block;text-align: center!important;">
+                            <h2>CLOSED BUGS:</h2>
+                 <h2>ARCHIVED PROJECTS:</h2>
+                          <p> In case of any issue, contact your respective project manager via <a href="#">email</a></p>
+                    <table style="clear: both;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+    max-width: none !important;
+    border-collapse: separate !important;border: 1px solid #f4f4f4;width: 100%;box-sizing: border-box;text-indent: initial;background-color: transparent;
+}">
+        <thead style="display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;border-collapse: separate !important;text-indent: initial;">
+            <tr>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">
+                    Project Status</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">
+                    Project ID</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">
+                    Project Title</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">
+                    Project Description</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align: left;border-collapse:
+                 separate !important; text-indent: initial; border: 1px solid #f4f4f4;">Created At</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+                left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Updated At</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+                left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Deadline</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+                left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Manager Email</th>
+                <th style="color: #ff5733; border-top: 0;border-left-width: 0;border-bottom-width: 2px;padding: 8px;text-align:
+                left;border-collapse: separate !important;    text-indent: initial; border: 1px solid #f4f4f4;">Project Type</th>
+
+            </tr></thead>
+
+                 <tbody style="box-sizing: border-box;text-indent: initial;border-collapse: separate !important;">
+                        {% for project in projectss %}
+      <tr>
+                  <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[13] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[0] }}</td>
+                    <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[1] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[2] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[3] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[4] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[5] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[7] }}</td>
+                        <td style="border-bottom-width: 0;border-left-width: 0;border: 1px solid #f4f4f4;padding: 8px;line-height: 1.42857143;vertical-align: top;display: table-cell;
+    border-collapse: separate !important;text-indent: initial;">{{ project[11] }}</td>
+{% endfor %}
+      </tr></tbody></table>
+
+
+
+
+
+
+                            <div class="row align-items-center">
+
+                            </div>
+                            <div>
+                            </div>
+                        </div><br><br><br>
+
+    </div>
+            </div>
+        </div>
+    </div>
+
+
+        <script src="{{ url_for('static', filename='main.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.magnific-popup.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.countdown.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.stellar.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='owl.carousel.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='popper.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-ui.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-migrate-3.0.1.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='aos.js') }}"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"79b5006c5d1e9cac","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.2.0","si":100}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

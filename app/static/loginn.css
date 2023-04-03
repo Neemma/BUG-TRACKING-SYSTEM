@@ -1,0 +1,23 @@
+
+#form {
+    width: 25%;
+    border-radius: 4px;
+    margin: 120px auto;
+    padding: 50px;
+    box-shadow: 10px 10px 5px rgb(186, 201, 187);
+}
+
+#btn {
+
+    padding: 5px;
+    font-size: medium;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 570px) {
+    #form {
+        width: 65%;
+        margin-left: none;
+        padding: 40px;
+    }
+}

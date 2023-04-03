@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+            <title>EDIT BUG STATUS</title>
+    <link rel="icon" type="image/png" href="static/beetle.png"
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='icomoon/font/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='formbug.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='loginn.css') }}">
+
+ <body>
+{% block content %}
+
+      <div id="form">
+            <h1 class="d-block mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100" style="text-align:center">Edit Bug Status</h1>
+          <p>Are you sure you want <a href="#" style="color:red" >change the status</a>
+      of this bug ?<br>
+      Choosing YES means the solution you have is both:<br> ✓ <u style="color:red">functioning</u>  <br>and
+              <br> ✓ <u style="color:red">deployable</u></p>
+  <form method="POST">
+    <input type="hidden" name="confirmation" value="yes">
+    <button type="submit" class="btn btn-danger">Yes</button>
+    <a href="{{ url_for('developerdashboard') }}" class="btn btn-danger">No</a>
+  </form>
+      </div>
+{% endblock %}
+
+
+</body>
+
+</html>

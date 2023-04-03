@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BUIBUI-ADMIN:</title>
+   <link rel="icon" type="image/png" href="static/admin.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fontt.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="site-wrap">
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="site-navbar py-3" role="banner">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-11 col-xl-2">
+                        <h1 class="mb-0"><a href="{{ url_for('admindashboard') }}" class="text-white h2 mb-0">Bui<span class="text-primary">Bui</span> </a></h1>
+                    </div>
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                 <li><a href="{{ url_for('admindashboard') }}">Admin Dashboard</a></li>
+                                <li><a href="{{ url_for('adminprofile') }}">Your Profile</a></li>
+                                <li><a href="{{ url_for('addusers') }}">Add Users</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+            </div>
+    </div>
+    </header>
+   <div class="site-section">
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                        <div class="pricing border-secondary text-center">
+                            <h2>Tester</h2>
+                            <div class="row align-items-center">
+                                <p>Select below to add a new TESTER. <br><br><br></p>
+                            </div>
+                            <div><a href="{{ url_for('testerform') }}"  class="btn btn-secondary px-4 py-2">ADD</a></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                        <div class="pricing border-primary text-center">
+                            <h2>Developer</h2>
+                            <div class="row align-items-center">
+                                <p>Select below to add a new DEVELOPER. <br><br><br></p>
+                            </div>
+                            <div><a href="{{ url_for('developerform') }}"  class="btn btn-secondary px-4 py-2">ADD</a></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                        <div class="pricing border-secondary text-center">
+                            <h2>Project Manager</h2>
+
+                            <div class="row align-items-center">
+                                <p>Select below to add a new PROJECT MANAGER.<br><br><br></p>
+                            </div>
+                            <div><a href="{{ url_for('managerform') }}" class="btn btn-secondary px-4 py-2">ADD</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

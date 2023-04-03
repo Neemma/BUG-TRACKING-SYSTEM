@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BUIBUI-1.2.0</title>
+    <link rel="icon" type="image/png" href="static/add.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fontt.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="site-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 aos-init aos-animate " data-aos="fade-up">
+                    <form action="/newproject" method="POST">
+                        <div class="row form-group">
+                            <div class="col-md-6 mb-3 mb-md-0 aos-init aos-animate">
+                                <label class="" for="project_title">Project Title:</label>
+                                <input type="text" id="project_title" class="form-control" name="project_title" required>
+                            </div>
+                            <div class="col-md-6 aos-init aos-animate">
+                                <label class="" for="project_description">Description:</label>
+                                <input type="text" id="project_description" class="form-control" name="project_description" required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12 aos-init aos-animate">
+                                <label class="" for="deadline">Estimated Deadline:</label>
+                                <input type="date" id="deadline" class="form-control" name="deadline" required>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12 aos-init aos-animate">
+                                <label class="" for="manager">Project Manager:</label>
+                                <input type="text" id="manager" class="form-control" name="manager" required>
+                                <br>
+                                <label class="" for="manager_id">Project Manager ID:</label>
+                                <input type="text" id="manager_id" class="form-control" name="manager_id" required>
+                                <br>
+                                <label class="" for="manager_email">Project Manager Email:</label>
+                                <input type="email" id="manager_email" class="form-control" name="manager_email" required>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12 aos-init aos-animate">
+                                <label class="" for="project_stakeholder_email">Project Stakeholder(s) Email:</label>
+                                <input type="email" id="project_stakeholder_email" class="form-control" name="project_stakeholder_email" required>
+                                <br>
+                                <label class="" for="project_stakeholder_phone">Project Stakeholder(s) Phone:</label>
+                                <input type="tel" id="project_stakeholder_phone" class="form-control" name="project_stakeholder_phone" required>
+                                <br>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <div class="col-md-12 aos-init aos-animate">
+                                <label class="" for="project_type">Project Type:</label>
+                                            <select name="project_type" id="project_type">
+                                <option value="agile">Agile</option>
+                                    <optgroup>
+                                        <option value="agile">Agile
+                                        </option>
+                                        <option value="scrum">SCRUM
+                                        </option>
+                                        <option value="waterfall">Waterfall
+                                        </option>
+                                          <option value="kanban">Kanban
+                                        </option>
+                                    </optgroup>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-md-12 aos-init aos-animate">
+                                <input type="submit" value="Submit Data" class="btn btn-primary py-2 px-4 text-white">
+                            </div>
+                        </div>
+                    </form>
+                </div>

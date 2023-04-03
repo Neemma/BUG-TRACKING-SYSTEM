@@ -1,0 +1,273 @@
+
+#page_title h2 {
+    margin-bottom: 0;
+}
+
+#page_title h3 {
+    margin-top: 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.tabbody {
+    border-radius: var(--primary-region-border-radius);
+    padding: 1em 2em;
+    background-color: var(--primary-region-background-color);
+    box-shadow: var(--primary-region-box-shadow);
+}
+
+#yui-history-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+}
+
+#steps {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+.product-icon {
+    float: left;
+    margin: 8px 15px 8px 0;
+    width: 64px;
+    height: 64px;
+}
+
+#product_step {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+}
+
+ul.product-list {
+    margin: 0 -10px 20px;
+    padding: 0;
+    list-style: outside none none;
+}
+
+ul.product-list>li {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    margin: 4px;
+    border: 1px solid var(--primary-region-border-color);
+    border-radius: var(--primary-region-border-radius);
+    padding: 1px;
+    width: 300px;
+    min-height: 166px;
+    height: 168px;
+    background-color: var(--primary-region-background-color);
+    background-clip: padding-box;
+    box-shadow: var(--primary-region-box-shadow);
+    vertical-align: top;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+ul.product-list>li>.product-item {
+    display: block;
+    padding: 10px;
+}
+
+#steps a img {
+    border: none;
+}
+
+#advanced {
+    margin-top: 50px;
+    text-align: right;
+    margin-left: auto;
+}
+
+#advanced img {
+    vertical-align: middle;
+}
+
+#advanced a {
+    cursor: pointer;
+}
+
+
+/**
+ * products and other_products step
+ */
+
+.exits {
+    margin: 10px 0;
+    border: 1px solid var(--secondary-region-border-color);
+    width: 600px;
+    background-color: var(--secondary-region-background-color);
+}
+
+.exits td {
+    padding: 10px 0;
+}
+
+.exits h2 {
+    margin: 0;
+    font-size: var(--font-size-small);
+}
+
+.exit_img {
+    width: 32px;
+    padding: 0 10px;
+}
+
+.exit_text,
+.exit_text_last {
+    width: 100%;
+}
+
+.exit_text {
+    border-bottom: 1px solid var(--secondary-region-border-color);
+}
+
+.exit_text a,
+.exit_text_last a {
+    font-size: var(--font-size-h4);
+    display: block;
+    margin-bottom: 2px;
+}
+
+#prod_comp_search_main {
+    width: 400px;
+}
+
+#prod_comp_search_label {
+    margin-bottom: 1px;
+}
+
+#products {
+    width: 600px;
+}
+
+#products td {
+    padding: 5px;
+    padding-bottom: 10px;
+}
+
+#products h2 {
+    margin-bottom: 0;
+}
+
+#products p {
+    margin-top: 0;
+}
+
+.product_img {
+    width: 64px;
+}
+
+#other_products .classification {
+    font-weight: bold;
+}
+
+#other_products .classification th {
+    font-size: var(--font-size-x-large);
+}
+
+
+/**
+ * duplicates step
+ */
+
+#dupes_summary {
+    width: 500px;
+}
+
+#dupes_list {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+#product_support {
+    border: 1px solid var(--primary-region-border-color);
+}
+
+
+/**
+ * bug form step
+ */
+
+#bugForm {
+    border: 1px solid var(--primary-region-border-color);
+    border-radius: var(--primary-region-border-radius);
+    width: 600px;
+    background-color: var(--primary-region-background-color);
+    box-shadow: var(--primary-region-box-shadow);
+}
+
+#bugForm th,
+#bugForm td {
+    padding: 8px 16px;
+}
+
+#bugForm .label {
+    text-align: left;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#bugzilla-body #bugForm th {
+    vertical-align: middle;
+}
+
+#bugForm .textInput {
+    width: 450px;
+}
+
+#bugForm textarea {
+    width: 590px;
+}
+
+#bugForm .mandatory_mark {
+    color: var(--required-label-color);
+    font-size: var(--font-size-small);
+}
+
+#versionTD {
+    text-align: right;
+    white-space: nowrap;
+}
+
+#component_select {
+    width: 450px;
+}
+
+#component_description {
+    padding: 5px;
+}
+
+#bugForm .missing {
+    border: 1px solid var(--error-message-foreground-color);
+    box-shadow: 0 0 4px var(--error-message-foreground-color);
+}
+
+#submitTD {
+    text-align: right;
+}
+
+.help {
+    position: absolute;
+    border: 1px solid var(--menu-border-color);
+    border-radius: var(--menu-border-radius);
+    padding: 8px;
+    background: var(--menu-background-color);
+    box-shadow: var(--menu-box-shadow);
+    cursor: default;
+}
+
+.help-bad {
+    color: var(--error-message-foreground-color);
+}
+
+.help-good {
+    color: var(--positive-message-foreground-color);
+}

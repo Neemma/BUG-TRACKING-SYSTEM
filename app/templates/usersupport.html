@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BUIBUI-1.2.0</title>
+    <link rel="icon" type="image/png" href="static/beetle.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='icomoon/font/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='formbug.css') }}">
+</head>
+
+
+<body>
+
+        <header class="site-navbar py-3" role="banner">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-11 col-xl-2">
+                        <h1 class="mb-0"><a href="index.html" class="text-white h2 mb-0">Bui<span class="text-primary">Bui</span> </a></h1>
+                    </div>
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                <li><a href="{{ url_for('index') }}">Home</a></li>
+                                <li><a href="{{ url_for('about') }}">Who we are</a></li>
+                                <li><a href="{{ url_for('contact') }}">Talk to us</a></li>
+                                <li><a href="{{ url_for('usersupport') }}">User Support</a></li>
+                                <li><a href="{{ url_for('joinus') }}">Log In</a></li>
+                                <li><a href="{{ url_for('adminlogin') }}">[Admin]</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+                </div>
+            </div>
+    </div>
+    </header>
+
+ <div class="site-section site-hero inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                    <span class="d-block mb-3 caption">Welcome to:</span>
+                    <h1 class="d-block mb-4">Customer Support</h1>
+                    <span class="d-block mb-3 caption"> Are you using any of our already deployed software?? <br>Do you have complaints to make,<br> Or Bugs to report,<br> Or Enhancements to suggest, <br>Or are you experiencing any problems with our systems??<br>Kindly let us know!! <br>Your feedback is highly appreciated.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="site-section">
+        <div class="container">
+            <form method="post" action="{{ url_for('technicalissue') }}" enctype="multipart/form-data" onsubmit="return bugForm.validate()" display="block" margin-top="0em">
+
+
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <table id="bugForm" cellspacing="0">
+                    <tr>
+                        <td class="label">Select the Software you are using:</td></tr>
+                    <tr>
+                        <td>
+                                     <select name="software" id="software" style="width:200px;">
+                                          <option value="SoftwareA">Software A</option>
+                                         <option value="SoftwareB">Software B</option>
+                                         <option value="SoftwareC">Software C</option>
+                                         <option value="SoftwareD">Software D</option>
+                                         <option value="SoftwareE">Software E</option>
+                                         <option value="SoftwareF">Software F</option>
+                                         <option value="SoftwareG"selected>Software G</option>
+                                     </select>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="label">Summary:</td>
+                    </tr>
+                    <tr>
+                        <td width="100%" colspan="2">
+                            <input name="summary" id="summary" class="textInput" spellcheck="true">
+                        </td>
+
+                    </tr>
+
+
+
+                    <tr>
+                        <td class="label" colspan="3">What did you do? (steps to reproduce)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><textarea id="steps" name="steps" rows="5"></textarea></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td class="label" colspan="3">What happened? (actual results)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><textarea id="actual" name="actual" rows="5"></textarea></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td class="label" colspan="3">What should have happened? (expected results)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><textarea id="expected" name="expected" rows="5"></textarea></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="label">Attach a file:</td></tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="file" name="data" id="data" size="50" onchange="bugForm.onFileChange()">
+                            <input type="hidden" name="contenttypemethod" value="autodetect">
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="label">Issue Type:</td></tr>
+                    <tr>
+                        <td class="label"> <input type="radio" name="problem_type" value="defect" required>This is a defect report.
+                        </td></tr>
+                    <tr>
+                            <td class="label"> <input type="radio" name="problem_type" value="enhancement" required>This is a request for enhancement.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="label"><u>YOUR CONTACT DETAILS:</u></td>
+                    </tr>
+
+                    <tr>
+                        <td class="label">First Name:</td>
+                    </tr>
+                    <tr>
+                         <td width="100%" colspan="2">
+                        <input type="text" id="fname" name="fname" class="form-control">
+                         </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Last Name:</td>
+                    </tr>
+                    <tr>
+                         <td width="100%" colspan="2">
+                        <input type="text" name="lname" id="lname" class="form-control">
+                         </td>
+                    </tr>
+                    <tr>
+                        <td class="label">Email:</td>
+                    </tr>
+                    <tr>
+                         <td width="100%" colspan="2">
+                        <input type="email" name="email" id="email" class="form-control">
+                         </td>
+                    </tr>
+                      <tr id="submitTR">
+                        <td>&nbsp;</td>
+                        <td colspan="2" id="submitTD">
+                            <input type="submit" id="submit" name="submit" value="Submit Issue">
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                </table>
+
+            </form>
+
+        </div>
+    </div>
+
+    </div>
+
+
+</body>

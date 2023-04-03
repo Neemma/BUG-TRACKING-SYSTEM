@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BUIBUI-Tester</title>
+    <link rel="icon" type="image/png" href="static/beetle.png"
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fontt.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='formbug.css') }}">
+    <script nonce="4fbbaaf6-cf26-44de-8ab3-538b0981d65c">
+        (function(w, d) {
+            ! function(f, g, h, i) {
+                f[h] = f[h] || {};
+                f[h].executed = [];
+                f.zaraz = {
+                    deferred: [],
+                    listeners: []
+                };
+                f.zaraz.q = [];
+                f.zaraz._f = function(j) {
+                    return function() {
+                        var k = Array.prototype.slice.call(arguments);
+                        f.zaraz.q.push({
+                            m: j,
+                            a: k
+                        })
+                    }
+                };
+                for (const l of["track", "set", "debug"]) f.zaraz[l] = f.zaraz._f(l);
+                f.zaraz.init = () => {
+                    var m = g.getElementsByTagName(i)[0],
+                        n = g.createElement(i),
+                        o = g.getElementsByTagName("title")[0];
+                    o && (f[h].t = g.getElementsByTagName("title")[0].text);
+                    f[h].x = Math.random();
+                    f[h].w = f.screen.width;
+                    f[h].h = f.screen.height;
+                    f[h].j = f.innerHeight;
+                    f[h].e = f.innerWidth;
+                    f[h].l = f.location.href;
+                    f[h].r = g.referrer;
+                    f[h].k = f.screen.colorDepth;
+                    f[h].n = g.characterSet;
+                    f[h].o = (new Date).getTimezoneOffset();
+                    if (f.dataLayer)
+                        for (const s of Object.entries(Object.entries(dataLayer).reduce(((t, u) => ({...t[1],
+                                ...u[1]
+                            }))))) zaraz.set(s[0], s[1], {
+                            scope: "page"
+                        });
+                    f[h].q = [];
+                    for (; f.zaraz.q.length;) {
+                        const v = f.zaraz.q.shift();
+                        f[h].q.push(v)
+                    }
+                    n.defer = !0;
+                    for (const w of[localStorage, sessionStorage]) Object.keys(w || {}).filter((y => y.startsWith("_zaraz_"))).forEach((x => {
+                        try {
+                            f[h]["z_" + x.slice(7)] = JSON.parse(w.getItem(x))
+                        } catch {
+                            f[h]["z_" + x.slice(7)] = w.getItem(x)
+                        }
+                    }));
+                    n.referrerPolicy = "origin";
+                    n.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(f[h])));
+                    m.parentNode.insertBefore(n, m)
+                };
+                ["complete", "interactive"].includes(g.readyState) ? zaraz.init() : f.addEventListener("DOMContentLoaded",
+                    zaraz.init)
+            }(w, d, "zarazData", "script");
+        })(window, document);
+    </script>
+</head>
+
+<body>
+    <div class="site-wrap">
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="site-navbar py-3" role="banner">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-11 col-xl-2">
+                        <h1 class="mb-0"><a href="{{ url_for('testerdashboard') }}" class="text-white h2 mb-0">Bui<span class="text-primary">Bui</span> </a></h1>
+                    </div>
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                <li><a href="{{ url_for('testerdashboard') }}">Your Dashboard</a></li>
+                                <li><a href="{{ url_for('testerprofile') }}">Your Profile</a></li>
+                                <li><a href="{{ url_for('reportbug') }}">Report New Bug</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+                </div>
+            </div>
+    </div>
+    </header>
+
+
+    <div class="site-section site-hero inner">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                    <h1 class="d-block mb-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Report A Bug</h1>
+                    <span class="d-block mb-3 caption aos-init aos-animate" data-aos="fade-up">Kindly look up the bug to see if it has already been reported</span>
+
+                    <div class="tabbody">
+                        <p>
+                            Find a specific bug by entering words that describe it.</p>
+                        <p>
+                            For example, if the bug you are looking for is a system crash when the submit button is clicked, search 'Submit Button System Failure'
+                        </p>
+
+
+                        <form name="" method="get" action="/search" display="block" margin-top="0em">
+    <table>
+        <tbody>
+            <tr>
+                <th>
+                    <label>Status:</label>
+                </th>
+                <td>
+                   <select name="bug_status" style="text-align:center">
+                       <option value="OPEN">OPEN</option>
+                       <option value="IN-PROGRESS">IN-PROGRESS</option>
+                       <option value="RESOLVED">RESOLVED</option>
+                       <option value="CLOSED">CLOSED</option>
+                   </select><br>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Project:</label>
+                </th>
+                <td>
+                    <select name="project_title">
+                        {% for project in projectss %}
+                            <option value="{{ project[1] }}">{{ project[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Search:</label>
+                </th>
+                <td>
+                    <input type="text" name="search_term" placeholder="Search for bugs...">
+                    <button type="submit">Search</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+                    </div>
+
+
+                    <br>
+                    <br>
+
+
+                    <div>
+                        <span class="d-block mb-3 caption aos-init aos-animate" data-aos="fade-up" font-size="10px">Not found? <br> REPORT NEW BUG:</span>
+                        <span class="d-block mb-3 caption aos-init aos-animate" data-aos="fade-up"> Fill the form below as accurately as you can:</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="site-section">
+        <div class="container">
+            <form method="POST" action="/report_bug" enctype="multipart/form-data" onsubmit="return bugForm.validate()" display="block" margin-top="0em">
+                <br><br><br><br><br><br><br><br>
+                <table id="bugForm" cellspacing="0">
+
+                    <tr>
+                       <td class="label">Project:</td>
+                    </tr>
+                    <tr>
+                         <td><select name="project_id" required>
+                              {% for project in projects %}
+                             <option value="{{ project[0] }}">{{ project[1] }}
+                             </option>
+                              {% endfor %}
+                            </select>
+                         </td>
+                    </tr>
+                    <tr>
+                      <td class="label">Environment: (e.g Google Chrome/ Samsung Galaxy 65)</td></tr>
+                    <tr>
+                    <tr>
+                        <td width="100%" colspan="2">
+                            <input name="environment" id="environment" class="textInput" required>
+                        </td>
+
+                    </tr>
+                    <tr>
+                      <td class="label">Summary:</td></tr>
+                    <tr>
+                        <td width="100%" colspan="2">
+                            <input name="short_desc" id="short_desc" class="textInput" spellcheck="true">
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="label" colspan="3">What did you do? (steps to reproduce)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><textarea id="bug_steps" name="bug_steps" rows="5" required></textarea></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td class="label" colspan="3">What happened? (actual results)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><textarea id="actual" name="actual" rows="5" required></textarea></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td class="label" colspan="3">What should have happened? (expected results)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><textarea id="expected" name="expected" rows="5" ></textarea></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="label">Attach a file:</td></tr><tr>
+                        <td colspan="2">
+                            <input type="file" name="file" id="file" size="500">
+                        </td>
+                    </tr>
+                    <tr id="data_description_tr">
+                        <td class="label">File Description:</td></tr><tr>
+                        <td colspan="2"><input type="text" name="description" id="data_description" class="textInput"></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td class="label">Bug Type:</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label> <input type="radio" name="bug_type" value="defect" required>This is a defect report.</label>
+                        </td></tr><tr>
+                        <td>
+                            <label> <input type="radio" name="bug_type" value="enhancement" required>This is a request for enhancement.</label>
+                        </td>
+                    </tr>
+
+                    <tr id="submitTR">
+                        <td id="submitTD">
+                            <input type="submit" id="submit" value="Submit Bug" style="color:#ff5733">
+                        </td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                </table>
+
+            </form>
+
+        </div>
+    </div>
+
+    </div>
+
+        <script src="{{ url_for('static', filename='main.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.magnific-popup.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.countdown.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.stellar.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='owl.carousel.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='popper.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-ui.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-migrate-3.0.1.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='aos.js') }}"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"79b5006c5d1e9cac","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.2.0","si":100}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

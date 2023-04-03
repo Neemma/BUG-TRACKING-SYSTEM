@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BUIBUI-Tester</title>
+    <link rel="icon" type="image/png" href="static/beetle.png"
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fontt.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <div class="site-wrap">
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="site-navbar py-3" role="banner">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-11 col-xl-2">
+                        <h1 class="mb-0"><a href="{{ url_for('testerdashboard') }}" class="text-white h2 mb-0">Bui<span class="text-primary">Bui</span> </a></h1>
+                    </div>
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                                <li><a href="{{ url_for('testerdashboard') }}">Your Dashboard</a></li>
+                                <li><a href="{{ url_for('testerprofile') }}">Your Profile</a></li>
+                                <li><a href="{{ url_for('reportbug') }}">Report New Bug</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+                </div>
+            </div>
+    </div>
+    </header>
+   <div class="site-section site-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-10">
+                    <span class="d-block mb-3 caption aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">Your Details:</span>
+
+                    <div class="col-md-6 aos-init aos-animate " data-aos="fade-up">
+                        <table>
+                            <div class="row form-group">
+                                <div class="col-md-6 mb-3 mb-md-0 aos-init aos-animate">
+                                    <label class="" for="tester_id">Your ID</label>
+                                    <input type="text" id="tester_id" class="form-control" value="{{ tester[0] }}" readonly>
+                                </div>
+                                <div class="col-md-6 mb-3 mb-md-0 aos-init aos-animate">
+                                    <label class="" for="username">UserName</label>
+                                    <input type="text" id="username" class="form-control" value="{{ tester[3] }}" readonly>
+                                </div>
+                                <div class="col-md-6 mb-3 mb-md-0 aos-init aos-animate">
+                                    <label class="" for="fname">First Name</label>
+                                    <input type="text" id="fname" class="form-control" value="{{ tester[1] }}" readonly>
+                                </div>
+                                <div class="col-md-6  mb-3 mb-md-0 aos-init aos-animate">
+                                    <label class="" for="lname">Last Name</label>
+                                    <input type="text" id="lname" class="form-control" value="{{ tester[2] }}" readonly>
+                                </div>
+                                <div class="col-md-12 aos-init aos-animate">
+                                    <label class="" for="email">Email</label>
+                                    <input type="email" id="email" class="form-control"  value="{{ tester[5] }}" readonly>
+                                </div>
+                                <div class="col-md-12 aos-init aos-animate">
+                                    <label class="" for="password-field">Password</label>
+                                    <input type="password" class="form-control"  id="password-field" value="{{ tester[6] }}" readonly>
+                                    <button id="toggle-btn" type="button">Show</button>
+
+                                </div>
+                                <script>
+                                    const passwordField = document.getElementById('password-field');
+                                    const toggleBtn = document.getElementById('toggle-btn');
+
+                                    toggleBtn.addEventListener('click', () => {
+                                    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                                    passwordField.setAttribute('type', type);
+                                     });
+
+                                </script>
+                                <div class="col-md-12 aos-init aos-animate">
+                                    <label class="" for="number">Phone Number</label>
+                                    <input type="number" id="number" class="form-control"  value="{{ tester[7] }}" readonly>
+                                </div>
+                                <div class="col-md-12 aos-init aos-animate">
+                                    <label class="" for="address">Address</label>
+                                    <input type="address" id="address" class="form-control"  value="{{ tester[4] }}" readonly>
+                                </div>
+                                <div class="col-md-10">
+                                    <label class="">In need of any assistance? Contact us:<br><li><a href="contact.html">Help</a></li><br> Or your Project Admins</label>
+
+                                </div>
+                                <div class="col-md-12 aos-init aos-animate">
+                                     <a href="{{ url_for('testerchangepassword') }}" class="btn btn-primary py-2 px-4 text-white">Change Password</a></div>
+
+                                </div>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <script src="{{ url_for('static', filename='main.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.magnific-popup.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.countdown.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.stellar.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='owl.carousel.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='popper.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-ui.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-migrate-3.0.1.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='aos.js') }}"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"79b5006c5d1e9cac","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.2.0","si":100}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

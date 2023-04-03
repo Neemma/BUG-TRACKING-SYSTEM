@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>BUIBUI-1.2.0</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="static/beetle.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='icomoon/font/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='formbug.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='loginn.css') }}">
+    </head>
+    <body>
+
+        <div id="form" style="background-color:#ff5733">
+            <h1 class="d-block mb-4 aos-init aos-animate" data-aos="fade-up"
+                data-aos-delay="100" style="text-align:center; color:white">SYSTEM ADMIN LOGIN</h1>
+            <form name="" action="login_admin" onsubmit="return isvalid()" method="POST">
+                <label>UserName: </label>
+                <input type="text" id="user" name="username"></br></br>
+                <label>Password: </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button id="toggle-btn" type="button" style="align:left">Show</button><br><br>
+                <input type="password" id="password-field" name="password" required></br></br>
+
+                <input type="submit" id="btn" value="Login" name = "submit"/>
+                <br><br>
+                <div style="color:black"> <input type="hidden" value="{{error}}" style="color:red">{{error}}</div>
+            </form>
+        </div>
+
+    </body>
+</html>

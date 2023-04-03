@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BUIBUI-Developer</title>
+    <link rel="icon" type="image/png" href="static/beetle.png"
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='fontt.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='jquery-ui.css') }}">
+    <link rel="stylesheet"href="{{ url_for('static', filename='owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css"  href="{{ url_for('static', filename='owl.theme.default.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aos.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <div class="site-wrap">
+        <div class="site-mobile-menu">
+            <div class="site-mobile-menu-header">
+                <div class="site-mobile-menu-close mt-3">
+                    <span class="icon-close2 js-menu-toggle"></span>
+                </div>
+            </div>
+            <div class="site-mobile-menu-body"></div>
+        </div>
+        <header class="site-navbar py-3" role="banner">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-11 col-xl-2">
+                        <h1 class="mb-0"><a href="{{ url_for('developerdashboard') }}" class="text-white h2 mb-0">Bui<span class="text-primary">Bui</span> </a></h1>
+                    </div>
+                    <div class="col-12 col-md-10 d-none d-xl-block">
+                        <nav class="site-navigation position-relative text-right" role="navigation">
+                            <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
+                              <li><a href="{{ url_for('developerdashboard') }}">Your Dashboard</a></li>
+                                <li><a href="{{ url_for('developerprofile') }}">Your Profile</a></li>
+                                <li><a href="{{ url_for('devbugs') }}">Your Bugs</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+                </div>
+            </div>
+    </div>
+
+    </header>
+     <div class="site-section site-hero"> <div class="container">
+         <div class="container"><h3 style="color:red">GENERATE BUG REPORT FOR BUG ID:{{bug[0]}}</h3>
+             <h5> [After interaction with the bug (ID:{{bug[0]}}), confirm or re-write the tester's initial report]</h5>
+     <form method="POST"  enctype="multipart/form-data"  action="{{ url_for('submit_bug_report', bug_id=bug[0]) }}">
+                    <div class="col-md-6 aos-init aos-animate " data-aos="fade-up">
+                        <p style="text-align:center"> This report is submitted to the respective project manager's email.</p>
+                        <table>
+
+                                 <div class="form-group">
+                                    <label class="" style="color:#ff5733" for="bug_id">BUG ID</label>
+                                    <input type="text" id="bug_id" name="bug_id" class="form-control" value="{{ bug[0] }}" readonly>
+                                 </div>
+                                <div class="form-group">
+                                    <label style="color:#ff5733"  class="" for="bug_title">BUG TITLE</label>
+                                    <input type="text" id="bug_title" name="bug_title" class="form-control" value="{{ bug[1] }}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color:#ff5733" class="" for="priority"> PRIORITY:(Critical/High/Moderate/Low)</label>
+                                    <input type="text" id="priority"  name="priority" class="form-control" value="{{ bug[7] }}">
+                                </div>
+
+                               <div class="form-group">
+                                    <label style="color:#ff5733"  class="" for="project_title">PROJECT TITLE:</label>
+                                    <input type="text" id="project_title" name="project_title" class="form-control" value="{{ bug[12] }}" readonly >
+                                </div>
+                                <div class="form-group">
+                                    <label style="color:#ff5733" class="" for="environment">ENVIRONMENT:</label>
+                                    <input type="text" id="environment" name="environment" class="form-control" value="{{ bug[14] }}">
+                                </div>
+                            <div class="form-group">
+                                 <label style="color:#ff5733"  class="" for="description">DESCRIBE THE BUG:<br>(In your own words and as vividly as possible)</label>
+                                   <textarea id="description" name="description" rows="5" class="form-control"></textarea>
+                              </div>
+
+                               <div class="form-group">
+                                 <label style="color:#ff5733" class="" for="steps_to_reproduce">STEPS TO REPRODUCE:</label>
+                                   <textarea id="steps_to_reproduce" name="steps_to_reproduce" rows="5" class="form-control">{{ bug[2] }}</textarea>
+                              </div>
+
+                             <div class="form-group">
+                                 <label style="color:#ff5733"  class="" for="expected_results">EXPECTED RESULTS:</label>
+                                   <textarea id="expected_results"  name="expected_results" rows="5" class="form-control">{{ bug[4] }}</textarea>
+                              </div>
+
+                                 <div class="form-group">
+                                 <label style="color:#ff5733" class="" for="actual_results">ACTUAL RESULTS:</label>
+                                   <textarea id="actual_results"  name="actual_results" rows="5" class="form-control">{{ bug[3] }}</textarea>
+                              </div>
+
+
+                               <div class="form-group">
+                                    <label style="color:#ff5733"  class="" for="attachment"> ATTACHMENT:</label>
+                                    <input type="file" name="attachment" id="attachment" size="500">
+                                </div>
+                                <div class="form-group">
+                                    <label style="color:#ff5733"  class="" for="author_tester_id">AUTHOR:(Tester who reported the bug)</label>
+                                    <input type="text" name="author_tester_id" id="author_tester_id" class="form-control" value="{{ bug[10]}}" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label style="color:#ff5733"  class="" for="developers_assigned">ASSIGNED DEVELOPERS:(Developers who worked the bug)</label>
+                                    <input name="developers_assigned" id="developers_assigned" class="form-control"  rows="5" value="ID: {{dev_id}}" readonly>
+                                </div>
+                                  <div class="form-group">
+                                    <label style="color:#ff5733"  class="" for="incident_type">BUG TYPE:(Defect/Enhancement)</label>
+                                    <input type="text" name="incident_type" id="incident_type" class="form-control" value="{{ bug[9] }}">
+                                </div>
+                                  <div class="form-group">
+                                    <label style="color:#ff5733"  class="" for="bug_created_at">BUG REPORT DATE:</label>
+                                    <input type="" name="bug_created_at" id="bug_created_at" class="form-control" value="{{ bug[5] }}" readonly>
+                                </div>
+                         <div class="form-group">
+                        <button type="submit" class="btn btn-primary">FOWARD BUG REPORT</button>
+                         </div>
+
+                        </table>
+     </form>
+                         </div>
+
+
+                    </div>
+
+    </div>
+
+
+        <script src="{{ url_for('static', filename='main.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.magnific-popup.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.countdown.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery.stellar.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='owl.carousel.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='popper.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-ui.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-migrate-3.0.1.min.js') }}"></script>
+     <script src="{{ url_for('static', filename='jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='aos.js') }}"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon='{"rayId":"79b5006c5d1e9cac","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.2.0","si":100}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
